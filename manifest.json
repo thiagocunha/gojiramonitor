@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "KO Jira Monitoring",
+  "description": "This monitors and display information of tickets using a specific filter.",
+  "version": "1",
+  "browser_action": {
+    "default_title": "KOJiraMon",
+    "default_icon": "img/jira128.png",
+    "default_popup": "popup/popup.html"
+  },
+  "icons": {
+    "128": "img/jira128.png",
+    "512": "img/jira.png"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["util/jquery.min.js", "main/jiramon.js", "content.js"]
+    }
+  ],
+   "permissions": [
+     "alarms",
+    "storage",
+    "tabs",
+    "unlimitedStorage",
+    "*://*/*"
+  ]
+}
