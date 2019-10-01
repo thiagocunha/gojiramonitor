@@ -7,34 +7,10 @@ const requestActions = {
 		monitor.MonitorTickets();
 		console.log("step 2");
 		*/
-		var lista = request.data.split("\n");
-		var listaPaths = [];
-		var output = "";
-		function execRequests(lista, indice, output){
-			var item = lista[indice];
-			console.log(item);
-			$.ajax(item).done(function( data ) {
-				//output = JSON.stringify(data);
-				//console.log(output);
-				data.pages.forEach(function(item){
-					console.log(item.srcPath);
-					if (!listaPaths.includes(item.srcPath))
-					{
-						listaPaths.push(item.srcPath);
-					}
-				});
-				if (indice < lista.length-1) //lista.length-1
-				{
-					chrome.runtime.sendMessage({type: "notify", notifyTotal: indice.toString()});
-					execRequests(lista, indice +1, output);
-				}
-				else{
-					sendResponse({output: listaPaths});
-				}
-				
-			});
-		}
-		execRequests(lista, 0, output);
+		$.ajax("https://jira.coke.com/jira/secure/Dashboard.jspa?selectPageId=21801").done(function( data ) {
+			// chrome.runtime.sendMessage({type: "notify", notifyTotal: indice.toString()});
+			sendResponse({output: data});
+		});
 		
 	},
 	alarm: function(request){

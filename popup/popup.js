@@ -7,18 +7,16 @@ tool.addEventListener('click', () => {
 		console.log("query");
 		let txt = document.getElementById('text');
 		let url = tabs[0].url;
-		if (url.match(/aem6-4/)) {
-			chrome.runtime.sendMessage({type: "crawler", data: document.getElementById('txtLinhas').value}, (response) => {
-				console.log(response);
-				if (response && response.output)
-					document.getElementById('txtResultado').value = response.output.join("\n");
+		chrome.runtime.sendMessage({type: "crawler", data: document.getElementById('txtLinhas').value}, (response) => {
+			console.log(response);
+			if (response && response.output)
+				document.getElementById('txtResultado').value = response.output.join("\n");
 
-				txt.className = 'success';
-				txt.innerHTML = 'Connected';
-				
-				return true;
-			});
-		} 
+			txt.className = 'success';
+			txt.innerHTML = 'Connected';
+			
+			return true;
+		});
 	});
 });
 /*
