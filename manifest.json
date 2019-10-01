@@ -13,7 +13,7 @@
     "512": "img/jira.png"
   },
   "background": {
-    "scripts": ["background.js", "util/jquery.min.js", "util/require.js"]
+    "scripts": ["background.js", "util/jquery.min.js"]
   },
   "content_scripts": [
     {
