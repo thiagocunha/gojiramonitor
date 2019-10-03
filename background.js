@@ -5,7 +5,7 @@ var ticketList = [];
 
 chrome.alarms.create("jiraMon", {
     delayInMinutes: 1,
-    periodInMinutes: 1
+    periodInMinutes: 10
 });
 
 
