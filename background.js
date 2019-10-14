@@ -9,7 +9,7 @@ chrome.alarms.create("jiraMon", {
 });
 
 
-chrome.alarms.onAlarm.addListener(function(alarm) {
+function alarmeAntigo(alarm) {
     if (alarm.name === "jiraMon") {
         var koidsCIT = [];
         var baseURL = 'https://jira.*.com/';
@@ -84,4 +84,4 @@ chrome.alarms.onAlarm.addListener(function(alarm) {
             }
         }
     }
-});
+}

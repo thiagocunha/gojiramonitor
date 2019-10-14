@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "KO Jira Monitoring",
-  "description": "This monitors and display information of tickets using a specific filter.",
+  "name": "Jira Story Burndow",
+  "description": "This extension wil display a burndown graph when a story is opened on Jira.",
   "version": "1",
   "options_page": "options/options.html",
   "browser_action": {
@@ -18,8 +18,8 @@
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["util/jquery.min.js", "main/jiramon.js", "content.js"]
+      "matches": ["https://jira.coke.com/jira/browse/*"],
+      "js": ["util/jquery.min.js", "main/jiramon.js", "util/jquery.canvasjs.min.js", "content.js"]
     }
   ],
    "permissions": [
